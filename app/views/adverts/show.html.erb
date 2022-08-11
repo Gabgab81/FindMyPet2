@@ -1,0 +1,13 @@
+<h1>Advert from <%=  @advert.user_id %></h1>
+
+<h2><%= @advert.name %></h2>
+<p>Type: <%= @advert.type_ad %></p> 
+
+<p>Address: <%= @advert.address %></p>
+<p>Content: <%= @advert.content %></p>
+<% if @advert.user == current_user %>
+  <%= link_to "Edit your advert", edit_advert_path(@advert) %>
+  <%= link_to "Delete this advert", advert_path(@advert), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+
+<%= link_to "Back to the adverts", adverts_path  %>
