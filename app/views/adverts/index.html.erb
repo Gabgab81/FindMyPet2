@@ -2,19 +2,23 @@
 
 
 <% @adverts.each do |advert| %>
-  <h2><%= advert.name %></h2>
-  <p>Type: <%= advert.type_ad %></p>
+    <h2><%= advert.name %></h2>
+    <p>Type: <%= advert.type_ad %></p>
 
-  
-  <p>Address: <%= advert.address %></p>
-  <p>Address: <%= advert.phone %></p>
-  <p>Content: <%= advert.content %></p>
-  <%= link_to "Show your advert", advert_path(advert) %>
-  <% if advert.user == current_user %>
+
+    <p>Address: <%= advert.address %></p>
+    <% if !advert.phone.empty? %>
+        <p>Phone: <%= advert.phone %></p>
+    <% end %>
+    <p>Content: <%= advert.content %></p>
+    <%= link_to "Show your advert", advert_path(advert) %>
+    <% if advert.user == current_user %>
     <%= link_to "Edit your advert", edit_advert_path(advert) %>
-    <%= link_to "Delete this advert", advert_path(advert), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
+    <%= link_to "Delete", advert_path(advert),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %>
 <% end %>
+
 <p></p>
 <%= link_to "Back to the home", root_path %>
 <p></p>

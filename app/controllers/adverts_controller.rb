@@ -11,7 +11,7 @@ class AdvertsController < ApplicationController
         if @advert.save
             redirect_to advert_path(@advert)
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 
@@ -27,14 +27,18 @@ class AdvertsController < ApplicationController
         
     end
 
-    def upgrate
-        @advert.update(advert_params)
-        redirect_to advert_path(@advert)
+    def update
+        if @advert.update(advert_params)
+            redirect_to advert_path(@advert)
+        else
+            render :edit, status: :unprocessable_entity
+        end
     end
 
     def destroy
         @advert.destroy
-    redirect_to adverts_path
+        
+        redirect_to adverts_path, status: :see_other
     end
 
     private
