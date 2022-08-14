@@ -17,6 +17,7 @@ class AdvertsController < ApplicationController
 
     def index
         @adverts = Advert.all
+        
         @markers = @adverts.geocoded.map do |advert|
             {
                 lat: advert.latitude,
@@ -28,6 +29,17 @@ class AdvertsController < ApplicationController
     end
 
     def show
+        if @advert.geocoded?
+            @markers = 
+                [{
+                    lat: @advert.latitude,
+                    lng: @advert.longitude,
+                    info_window: render_to_string(partial: "info_window", locals: {advert: @advert})
+                    # image_url: helpers.asset_url("/cartoon-dogs1.png")
+                }]
+        else
+            console.log('no coordinate for this advert')
+        end
         
     end
 
