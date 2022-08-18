@@ -1,0 +1,7 @@
+<h2>Show of user</h2>
+<h3><%= @user.name %></h3>
+ <%= link_to "Edit your profile", edit_user_registration_path %>
+ <p></p>
+ <%= link_to "Delete your profile", user_registration_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+ <p></p>
+ <%= link_to "Back to the adverts", adverts_path  %>

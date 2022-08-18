@@ -1,4 +1,4 @@
-<h1>Advert from <%=  @advert.user_id %></h1>
+<h1>Advert from <%=  @advert.user.name %></h1>
 
 <h2><%= @advert.name %></h2>
 <p>Type: <%= @advert.type_ad %></p> 
@@ -16,7 +16,7 @@
 <% @advert.comments.each do |comment| %>
   <p>--------</p>
   <p><%= comment.content %></p>
-  <p>by <%= comment.user_id %></p>
+  <p>by <%= comment.user.name %></p>
   <p>Comment id: <%= comment.id %></p>
   <% if comment.user == current_user %>
     <%= link_to "Edit", edit_comment_path(comment)  %>
