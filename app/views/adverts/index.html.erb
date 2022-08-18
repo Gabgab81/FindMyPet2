@@ -3,6 +3,7 @@
 
 <% @adverts.each do |advert| %>
     <h2><%= advert.name %></h2>
+    <p>From: <%= advert.user.name %></p>
     <p>Type: <%= advert.type_ad %></p>
 
 

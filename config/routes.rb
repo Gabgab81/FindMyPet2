@@ -12,4 +12,10 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:edit, :update, :destroy]
 
+  resources :users, only: [:show] do
+    member do
+      get :user_adverts
+    end
+  end
+
 end

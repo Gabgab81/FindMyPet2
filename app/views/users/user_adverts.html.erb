@@ -1,0 +1,17 @@
+<%= @user.name %>
+<p></p>
+<% @adverts.each do |advert| %>
+  <h2><%= advert.name %></h2>
+  <p>Type: <%= advert.type_ad %></p>
+
+  
+  <p>Address: <%= advert.address %></p>
+  <p>Content: <%= advert.content %></p>
+  <%= link_to "Show your advert", advert_path(advert) %>
+  <% if advert.user == current_user %>
+    <%= link_to "Edit your advert", edit_advert_path(advert) %>
+    <%= link_to "Delete this advert", advert_path(advert), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+<% end %>
+<p></p>
+<%= link_to "Back", :back %>
