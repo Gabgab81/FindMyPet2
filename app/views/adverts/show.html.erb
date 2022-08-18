@@ -13,6 +13,26 @@
   <%= link_to "Delete", advert_path(@advert), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <% end %>
 
+<% @advert.comments.each do |comment| %>
+  <p>--------</p>
+  <p><%= comment.content %></p>
+  <p>by <%= comment.user_id %></p>
+  <p>Comment id: <%= comment.id %></p>
+  <% if comment.user == current_user %>
+    <%= link_to "Edit", edit_comment_path(comment)  %>
+    <%= link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }  %>
+  <% end %>
+  <p>--------</p>
+<% end %>
+
+<h2>Write a message</h2>
+
+<%= simple_form_for [@advert, @comment] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
+<p></p>
+
 <%= link_to "Back to the adverts", adverts_path  %>
 
 <div style="width: 100%; height: 600px;"

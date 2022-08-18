@@ -45,6 +45,7 @@ class AdvertsController < ApplicationController
         #     console.log('no coordinate for this advert')
         # end
         @adverts = Advert.where(id: @advert.id)
+        @comment = Comment.new
         @markers = @adverts.geocoded.map do |advert|
             {
                 lat: advert.latitude,

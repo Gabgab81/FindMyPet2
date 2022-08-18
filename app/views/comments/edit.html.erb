@@ -1,0 +1,23 @@
+<h1>Advert from <%= @comment.advert.user_id %></h1>
+
+<h2><%= @comment.advert.name %></h2>
+<p>Type: <%= @comment.advert.type_ad %></p>
+<p>Address: <%= @comment.advert.address %></p>
+<p>Content: <%= @comment.advert.content %></p>
+
+
+<% @comment.advert.comments.each do |comment| %>
+  <p>--------</p>
+  <% if comment.id == @comment.id %>
+    <h2>Edit your comment</h2>
+    <%= simple_form_for(@comment )do |f| %>
+      <%= f.input :content %>
+      <%= f.submit %>
+    <% end %>
+  <% else %>
+    <p><%= comment.content %></p>
+    <p>by <%= comment.user_id %></p>
+    <p>Comment id: <%= comment.id %></p>
+  <% end %>
+  <p>--------</p>
+<% end %>
