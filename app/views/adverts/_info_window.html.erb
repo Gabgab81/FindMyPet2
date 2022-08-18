@@ -1,2 +1,6 @@
-<h2><%= advert.name %></h2>
-<p><%= advert.address %></p>
+<%= link_to advert_path(advert) do %>
+    <div class='info_window'>
+        <h2><%= advert.name %></h2>
+        <p><%= advert.address %></p>
+    </div>
+<% end %>

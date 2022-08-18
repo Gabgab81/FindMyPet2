@@ -16,8 +16,12 @@ class AdvertsController < ApplicationController
     end
 
     def index
-        @adverts = Advert.all
-        
+        # @adverts = Advert.all
+        if !params[:address].nil? && params[:address] != ''
+            @adverts = Advert.near(params[:address], params[:distance].to_i)
+        else
+            @adverts = Advert.all
+        end
         @markers = @adverts.geocoded.map do |advert|
             {
                 lat: advert.latitude,
