@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :adverts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 3 }
 
