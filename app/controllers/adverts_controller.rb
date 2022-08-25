@@ -46,6 +46,7 @@ class AdvertsController < ApplicationController
         # end
         @adverts = Advert.where(id: @advert.id)
         @comment = Comment.new
+        @message = Message.new
         @markers = @adverts.geocoded.map do |advert|
             {
                 lat: advert.latitude,
