@@ -1,0 +1,13 @@
+<p>Conversation : <%= @conversation.id %> </p>
+<% @messages.each do |message| %>
+    <p> <%= message.user.name %> </p>
+    <p> <%= message.content %> </p>
+<% end %>
+
+<%= simple_form_for(@message) do |f| %>
+  <%= f.input :content %>
+  <%= f.hidden_field :conversation_id, value: @conversation.id, readonly: true %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", :back %>
