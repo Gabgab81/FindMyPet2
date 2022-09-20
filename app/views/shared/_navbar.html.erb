@@ -1,12 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <div>
+    <%= link_to root_path do %>
+      <%= render "shared/logo" %>
     <% end %>
-
+</div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <%# Search %>
 
     <form action="/adverts" method="get" class="form-example">
       <div class="form-example">
@@ -21,6 +24,8 @@
         <input type="submit" value="Search">
       </div>
     </form>
+
+    <%# Search %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">

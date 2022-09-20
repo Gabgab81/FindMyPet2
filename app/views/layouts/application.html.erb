@@ -13,9 +13,18 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
+  <body>
+    <div class="init">
+      <header>
+        
+          
+          <%= render "shared/navbar" %>
+          <%= render "shared/flashes" %>
+        </header>
+        <main>
+          <%= yield %>
+        </main>
+        <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
