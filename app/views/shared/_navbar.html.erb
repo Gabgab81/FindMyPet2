@@ -11,19 +11,7 @@
 
     <%# Search %>
 
-    <form action="/adverts" method="get" class="form-example">
-      <div class="form-example">
-        <label for="address">Enter a address: </label>
-        <input type="text" name="address" id="address">
-      </div>
-      <div class="form-example">
-        <label for="distance">Enter le rayon de recherche: </label>
-        <input type="number" name="distance" id="distance" value="50">
-      </div>
-      <div class="form-example">
-        <input type="submit" value="Search">
-      </div>
-    </form>
+    <%= render "shared/searchTop" %>
 
     <%# Search %>
 
