@@ -16,6 +16,11 @@
         <hr class="hr">
     </div>
     
+    <section class="list-adv-cards" >
+        <% @adverts.each do |advert| %>
+            <%= render 'shared/cards-advert', advert: advert %>
+        <% end %>
+    </section>    
     
 </div>
 

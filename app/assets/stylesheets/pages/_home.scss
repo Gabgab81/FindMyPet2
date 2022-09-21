@@ -41,9 +41,15 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 30px;
+        margin-bottom: 30px;
         .hr{
             width: 40%;
             border-top: 1px solid $dblue; 
         }
+    }
+    .list-adv-cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 }
