@@ -5,6 +5,7 @@ class Advert < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   # has_many_attached :photos
+  has_one_attached :photo
 
   validates :name, presence: true, length: { minimum: 2 }
   validates :type_ad, presence: true, inclusion:  { in: ["Lost", "Find", "See"], 
