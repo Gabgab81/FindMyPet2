@@ -2,11 +2,15 @@
 
 <h2><%= @advert.name %></h2>
 <p>Type: <%= @advert.type_ad %></p> 
-<% if @advert.photo.key.nil? %>
-  <p><%= image_tag "logo.jpg", height: 300, width: 400%></p>
+
+<% if @advert.photos.attached? %>
+  <% @advert.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 <% else %>
-  <p><%= cl_image_tag @advert.photo.key, height: 300, width: 400, crop: :fill %></p>
+  <p><%= image_tag "logo.jpg", height: 300, width: 400%></p>
 <% end %>
+
 <p>Address: <%= @advert.address %></p>
 <% if !@advert.phone.empty? %>
         <p>Phone: <%= advert.phone %></p>
