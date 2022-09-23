@@ -11,3 +11,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.div-nav-left, .div-nav-right{
+  width: 200px;
+}
+.div-nav-right{
+  display: flex;
+  justify-content: end;
+}
