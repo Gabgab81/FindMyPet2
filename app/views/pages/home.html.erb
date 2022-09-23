@@ -19,6 +19,14 @@
         <% @adverts.each do |advert| %>
             <%= render 'shared/cards-advert', advert: advert %>
         <% end %>
+        <div class="space-between">
+        </div>
+        <%= render 'shared/map', markers: @markers %>
+        <div class="space-between">
+        </div>
+        
+
+
     </section>    
     
 </div>

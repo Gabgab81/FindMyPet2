@@ -3,7 +3,14 @@
     // width: 200px;
   }
   
-  .mapboxgl-popup-content {
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-  }
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.map-geo{
+  border-radius: 170px;
+  border: 5px solid $dblue;
+  width: 80%;
+  height: 500px;
+} 
