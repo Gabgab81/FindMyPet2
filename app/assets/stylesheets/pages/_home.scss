@@ -50,6 +50,11 @@
     .list-adv-cards{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        // flex: auto;
+        justify-content: space-evenly;
+        // &:after {
+        //     content: "";
+        //     flex: auto;
+        //   }
     }
 }

@@ -1,19 +1,18 @@
-<div class="main-card">
-    <div class="border-out-img-title">
-        <h2><%= advert.type_ad %></h2>
-        <div class="img-inside">
-            
+<%= link_to advert_path(advert), :action => 'go' do %>
+    <div class="main-card">
+        <div class="border-out-img-title">
+            <h2><%= advert.type_ad %></h2>
+            <div class="img-inside" style="background-image: url('<% if advert.photos.attached? %><%= cl_image_path advert.photos.first.key %><% else %><%= image_path "logo.jpg" %><% end %>'); background-size: cover; background-position: center;">
+            </div>
+            <div class="title-card">
+                <h3><%= advert.name %></h3>
+            </div>
         </div>
-        <div class="title-card">
-            <h3><%= advert.name %></h3>
+        <div class="info-card">
+            <p><%= advert.content %></p>
         </div>
-    </div>
-    <div class="info-card">
-        <p>Content: <%= advert.content %></p>
         <div class="more-info">
             <p>By: <%= advert.user.name %></p>
         </div>
-        
     </div>
-    
-</div>
+<% end %>
