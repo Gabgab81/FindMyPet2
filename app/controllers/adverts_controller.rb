@@ -26,10 +26,11 @@ class AdvertsController < ApplicationController
             {
                 lat: advert.latitude,
                 lng: advert.longitude,
-                info_window: render_to_string(partial: "info_window", locals: {advert: advert})
+                info_window: render_to_string(partial: "shared/info_window", locals: {advert: advert})
                 # image_url: helpers.asset_url("/cartoon-dogs1.png")
             }
         end
+        
     end
 
     def show
@@ -51,7 +52,7 @@ class AdvertsController < ApplicationController
             {
                 lat: advert.latitude,
                 lng: advert.longitude,
-                info_window: render_to_string(partial: "info_window", locals: {advert: advert})
+                info_window: render_to_string(partial: "shared/info_window", locals: {advert: advert})
                 # image_url: helpers.asset_url("/cartoon-dogs1.png")
             }
         end

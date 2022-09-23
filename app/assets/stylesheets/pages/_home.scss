@@ -51,5 +51,11 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+
+    }
+    .space-between{
+        width: 100%;
+        // background-color: green;
+        height: 30px;
     }
 }
