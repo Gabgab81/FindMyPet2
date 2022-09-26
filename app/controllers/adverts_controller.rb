@@ -17,11 +17,12 @@ class AdvertsController < ApplicationController
 
     def index
         # @adverts = Advert.all
-        if !params[:address].nil? && params[:address] != ''
-            @adverts = Advert.near(params[:address], params[:distance].to_i)
-        else
-            @adverts = Advert.all
-        end
+        @adverts = Advert.where(type_ad: params[:type_ad])
+        # if !params[:address].nil? && params[:address] != ''
+        #     @adverts = Advert.near(params[:address], params[:distance].to_i)
+        # else
+        #     @adverts = Advert.all
+        # end
         @markers = @adverts.geocoded.map do |advert|
             {
                 lat: advert.latitude,
@@ -30,7 +31,7 @@ class AdvertsController < ApplicationController
                 # image_url: helpers.asset_url("/cartoon-dogs1.png")
             }
         end
-        
+        # raise
     end
 
     def show

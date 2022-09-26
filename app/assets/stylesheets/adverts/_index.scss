@@ -1,0 +1,14 @@
+.index-advert{
+    .list-adv-cards{
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .space-between{
+        width: 100%;
+        // background-color: green;
+        height: 40px;
+    }
+}

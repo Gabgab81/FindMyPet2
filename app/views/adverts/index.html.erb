@@ -1,39 +1,45 @@
-<h1>All adverts</h1>
+<div class="index-advert">
+
+  <h1>Let's find our pet</h1>
+
+  <div class="type-adv">
+    <%# <form action="/adverts" method="get">
+
+      <input type="radio" id="all" name="type-adv" valeur="All" checked>
+      <label for="all">All</label>
+
+      <input type="radio" id="lost" name="type-adv" valeur="Lost">
+      <label for="lost">Lost</label>
+
+      <input type="radio" id="find" name="type-adv" valeur="Find">
+      <label for="find">Find</label>
+
+      <input type="radio" id="seen" name="type-adv" valeur="Seen">
+      <label for="seen">Seen</label>
+      <input type="submit" value="Submit">
+
+    </form> %>
 
 
-<% @adverts.each do |advert| %>
-    <h2><%= advert.name %></h2>
-    <p>From: <%= advert.user.name %></p>
-    <p>Type: <%= advert.type_ad %></p>
+  </div>
 
-    <% if advert.photos.attached? %>
-      <% advert.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <section class="list-adv-cards" >
+      <div class="space-between">
+      </div>
+      <%= render 'shared/map', markers: @markers %>
+      <div class="space-between">
+      </div>
+
+      <% @adverts.each do |advert| %>
+          <%= render 'shared/big-cards-advert', advert: advert %>
       <% end %>
-    <% else %>
-      <p><%= image_tag "logo.jpg", height: 300, width: 400%></p>
-    <% end %>
 
-    <p>Address: <%= advert.address %></p>
-    <% if !advert.phone.empty? %>
-        <p>Phone: <%= advert.phone %></p>
-    <% end %>
-    <p>Content: <%= advert.content %></p>
-    <%= link_to "Show your advert", advert_path(advert) %>
-    <% if advert.user == current_user %>
-    <%= link_to "Edit your advert", edit_advert_path(advert) %>
-    <%= link_to "Delete", advert_path(advert),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    <% end %>
-<% end %>
+    </section>    
+      
 
-<p></p>
-<%= link_to "Back to the home", root_path %>
-<p></p>
-<%= link_to "Create your advert", new_advert_path %>
+  <p></p>
+  <%= link_to "Back to the home", root_path %>
+  <p></p>
+  <%= link_to "Create your advert", new_advert_path %>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
