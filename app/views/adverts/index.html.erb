@@ -3,22 +3,42 @@
   <h1>Let's find our pet</h1>
 
   <div class="type-adv">
-    <%# <form action="/adverts" method="get">
+    
+    <div class= <%= params[:type_ad] == "" ? "radio-selected" : "radio"  %> >
+    <%= form_with url: "/adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "" %>
+          <%= form.hidden_field :address, value: params[:address]  %>
+          <%= form.hidden_field :distance, value: params[:distance] %>
+          <%= form.submit "All" %>
+      <% end %>
+    </div>
 
-      <input type="radio" id="all" name="type-adv" valeur="All" checked>
-      <label for="all">All</label>
+    <div class= <%= params[:type_ad] == "Find" ? "radio-selected" : "radio"  %> >
+      <%= form_with url: "/adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "Find" %>
+          <%= form.hidden_field :address, value: params[:address] %> 
+          <%= form.hidden_field :distance, value: params[:distance] %>
+          <%= form.submit "Find" %>
+      <% end %>
+    </div>
 
-      <input type="radio" id="lost" name="type-adv" valeur="Lost">
-      <label for="lost">Lost</label>
+    <div class= <%= params[:type_ad] == "Lost" ? "radio-selected" : "radio"  %> >
+      <%= form_with url: "/adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "Lost" %>
+          <%= form.hidden_field :address, value: params[:address]  %>
+          <%= form.hidden_field :distance, value: params[:distance] %>
+          <%= form.submit "Lost" %>
+      <% end %>
+    </div>
 
-      <input type="radio" id="find" name="type-adv" valeur="Find">
-      <label for="find">Find</label>
-
-      <input type="radio" id="seen" name="type-adv" valeur="Seen">
-      <label for="seen">Seen</label>
-      <input type="submit" value="Submit">
-
-    </form> %>
+    <div class= <%= params[:type_ad] == "See" ? "radio-selected" : "radio"  %> >
+      <%= form_with url: "/adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "See" %>
+          <%= form.hidden_field :address, value: params[:address]  %>
+          <%= form.hidden_field :distance, value: params[:distance] %>
+          <%= form.submit "See" %>
+      <% end %>
+    </div>
 
 
   </div>
@@ -26,7 +46,10 @@
     <section class="list-adv-cards" >
       <div class="space-between">
       </div>
-      <%= render 'shared/map', markers: @markers %>
+      <%# <div class="map-index"> %>
+        <%= render 'shared/map', markers: @markers %>
+      <%# </div> %>
+      
       <div class="space-between">
       </div>
 

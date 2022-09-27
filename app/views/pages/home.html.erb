@@ -14,30 +14,6 @@
         <h1>Last Ads</h1>
         <hr class="hr">
     </div>
-
-    <%# <form action="/adverts" method="get">
-
-      <input type="radio" id="all" name="type_ad" value="all" >
-      <label for="all">All</label>
-
-      <input type="radio" id="lost" name="type_ad" value="lost">
-      <label for="lost">Lost</label>
-
-      <input type="radio" id="find" name="type_ad" value="find">
-      <label for="find">Find</label>
-
-      <input type="radio" id="seen" name="type_ad" value="seen">
-      <label for="seen">Seen</label>
-      <input type="submit" value="Submit">
-
-    </form> %>
-
-    <form action="/adverts" method="get">
-        <%= radio_button_tag 'type_ad', "Find", true %>
-        <%= radio_button_tag 'type_ad', 'Lost' %>
-        <%= radio_button_tag 'type_ad', 'Seen' %>
-        <input type="submit" value="Submit">
-    </form> 
     
     <section class="list-adv-cards" >
         <% @adverts.each do |advert| %>
