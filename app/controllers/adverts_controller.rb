@@ -17,8 +17,15 @@ class AdvertsController < ApplicationController
 
     def index
         # @adverts = Advert.all
+        # @adverts = Advert.where(type_ad: params[:type_ad])
         if !params[:address].nil? && params[:address] != ''
-            @adverts = Advert.near(params[:address], params[:distance].to_i)
+            if !params[:type_ad].nil? && params[:type_ad] != ''
+                @adverts = Advert.near(params[:address], params[:distance].to_i).where(type_ad: params[:type_ad])
+            else
+               @adverts = Advert.near(params[:address], params[:distance].to_i)
+            end
+        elsif !params[:type_ad].nil? && params[:type_ad] != ''
+            @adverts = Advert.where(type_ad: params[:type_ad])
         else
             @adverts = Advert.all
         end
@@ -30,7 +37,7 @@ class AdvertsController < ApplicationController
                 # image_url: helpers.asset_url("/cartoon-dogs1.png")
             }
         end
-        
+        # raise
     end
 
     def show

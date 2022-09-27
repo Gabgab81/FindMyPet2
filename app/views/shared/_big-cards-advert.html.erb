@@ -1,0 +1,22 @@
+<%= link_to advert_path(advert) do %>
+    <div class="main-big-card">
+        <div class="border-out-img-title">
+            <h2><%= advert.type_ad %></h2>
+            <div class="img-inside" style="background-image: url('<% if advert.photos.attached? %><%= cl_image_path advert.photos.first.key %><% else %><%= image_path "logo.jpg" %><% end %>'); background-size: cover; background-position: center;">
+            </div>
+            <div class="title-card">
+                <h3><%= advert.name %></h3>
+            </div>
+        </div>
+
+        <div class="info-big-card">
+            <div class="card-content">
+                <p><%= advert.content %></p>
+            </div>
+            <div class="card-user">
+                <p>By: <%= advert.user.name %></p>
+            </div>
+        </div>
+        
+    </div>
+<% end %>
