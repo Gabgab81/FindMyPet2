@@ -1,10 +1,10 @@
 <div class="index-advert">
 
-  <h1>Let's find our pet</h1>
-
+  <%# <h1>Let's find our pet</h1> %>
+  <div class="space-between"></div>
   <div class="type-adv">
     
-    <div class= <%= params[:type_ad] == "" ? "radio-selected" : "radio"  %> >
+    <div class= <%= params[:type_ad] == "" || params[:type_ad].nil? ? "radio-selected" : "radio"  %> >
     <%= form_with url: "/adverts", method: :get do |form| %>
           <%= form.hidden_field :type_ad, value: "" %>
           <%= form.hidden_field :address, value: params[:address]  %>
