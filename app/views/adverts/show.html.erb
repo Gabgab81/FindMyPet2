@@ -7,30 +7,28 @@
     <div class="contact-card-user">
       <%= render 'shared/card-user', advert: @advert %>
       <%= render 'shared/contact-user', advert: @advert %>
+
+      
+      <% if @advert.user == current_user %>
+        <div class="user-choice-adv">
+          <h3>Votre annonce</h3>
+          <div class="edit-delete">
+            <%= link_to "Modifier", edit_advert_path(@advert) %>
+            <%= link_to "Effacer", advert_path(@advert), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      <% end %>
+      
     </div>
     
-  
   </div>
   
   <div class="space-between"></div>
   <%= render 'shared/map', markers: @markers %>
   <div class="space-between"></div>
 
-  <% if @advert.user == current_user %>
-    <%= link_to "Edit your advert", edit_advert_path(@advert) %>
-    <%= link_to "Delete", advert_path(@advert), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
-
   <% @advert.comments.each do |comment| %>
-    <p>--------</p>
-    <p><%= comment.content %></p>
-    <p>by <%= comment.user.name %></p>
-    <p>Comment id: <%= comment.id %></p>
-    <% if comment.user == current_user %>
-      <%= link_to "Edit", edit_comment_path(comment)  %>
-      <%= link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }  %>
-    <% end %>
-    <p>--------</p>
+    <%= render 'shared/card-comment', comment: comment %>
   <% end %>
 
   <h2>Write a message</h2>

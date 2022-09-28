@@ -6,9 +6,7 @@
             <%= f.input :content, label: false %>
             <%= f.hidden_field :advert_user_id, value: advert.user.id %>
             <%= f.hidden_field :conversation_id, value: nil, readonly: true %>
-            <%# <div class="submit"> %>
-                <%= f.submit "Envoyer" %>
-            <%# </div> %>
+            <%= f.submit "Envoyer" %>
             
         <% end %>
     </div>
