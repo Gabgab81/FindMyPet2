@@ -1,0 +1,38 @@
+.comment-adv{
+    background-color: white;
+    border-radius: 36px;
+    box-shadow: 0px 0px 5px 1px rgba(5, 47, 95, 0.3);
+    margin-top: 30px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+   
+    .simple-form{
+        width: 95%;
+        padding: 20px;
+        
+        .new_comment{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        input{
+            width: 20%;
+            height: 40px;
+            margin: 0px Auto;
+            border-radius: 36px;
+            color: white;
+            background-color: $brown;
+            border: 2px solid $brown;
+            transition: all 0.2s ease-in-out 0s;
+            transition-property: border, background-color, color;
+            &:hover{
+                background-color: white;
+                color: $brown;
+                border: 2px solid $brown;
+            }
+        }
+    }
+}

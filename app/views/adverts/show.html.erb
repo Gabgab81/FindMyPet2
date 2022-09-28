@@ -31,13 +31,7 @@
     <%= render 'shared/card-comment', comment: comment %>
   <% end %>
 
-  <h2>Write a message</h2>
-
-  <%= simple_form_for [@advert, @comment] do |f| %>
-    <%= f.input :content %>
-    <%= f.submit %>
-  <% end %>
-  <p></p>
+  <%= render 'shared/comment-adv', advert: @advert, comment: @comment %>
 
   <%= link_to "Back to the adverts", adverts_path  %>
 
