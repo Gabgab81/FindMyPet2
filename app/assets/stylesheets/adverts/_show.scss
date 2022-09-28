@@ -1,0 +1,12 @@
+.show-adv{
+    margin-left: 60px;
+    .space-between{
+    width: 100%;
+    height: 70px;
+    }
+    .card-adv-user{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}

@@ -63,6 +63,7 @@ class AdvertsController < ApplicationController
                 # image_url: helpers.asset_url("/cartoon-dogs1.png")
             }
         end
+        # raise
     end
 
     def edit
