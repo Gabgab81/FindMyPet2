@@ -1,0 +1,14 @@
+<div class="contact-user">
+    <h3>Contacter <%=  advert.user.name %></h3>
+
+    <div class="simple-form">
+        <%= simple_form_for(@message) do |f| %>
+            <%= f.input :content, label: false %>
+            <%= f.hidden_field :advert_user_id, value: advert.user.id %>
+            <%= f.hidden_field :conversation_id, value: nil, readonly: true %>
+            <%= f.submit "Envoyer" %>
+            
+        <% end %>
+    </div>
+   
+</div>

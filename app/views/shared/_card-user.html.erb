@@ -1,0 +1,15 @@
+<div class="card-user">
+    <div class="outside-user-img">
+        <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
+        </div>
+    </div>
+    
+    <div class="info-user">
+        <h3><%= @advert.user.name %></h3>
+        <p><%= Advert.where(user_id: @advert.user_id).count %> adverts</p>
+        <% if !@advert.phone.empty? %>
+                <p><i class="fa-solid fa-phone"></i> <%= @advert.phone %></p>
+        <% end %>
+    </div>
+    
+</div>

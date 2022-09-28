@@ -1,0 +1,26 @@
+<div class="card-comment">
+
+    <div class="img-username">
+
+        <div class="outside-user-img">
+            <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
+            </div>
+        </div>
+        
+        <div class="info-user">
+            <h3><%= @advert.user.name %></h3>
+        </div>
+
+    </div>
+    <div class="comment">
+        <p><%= comment.content %></p>
+        <% if comment.user == current_user %>
+            <%= link_to "Modifier", edit_comment_path(comment)  %>
+            <%= link_to "Effacer", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }  %>
+        <% end %>
+    </div>   
+
+
+
+    
+</div>
