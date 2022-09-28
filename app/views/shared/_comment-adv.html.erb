@@ -1,11 +1,9 @@
 <div class="comment-adv">
     <div class="simple-form">
-    <%= simple_form_for [@advert, @comment] do |f| %>
-        <%= f.input :content, label: false, placeholder: 'Ajouter un commentaire' %>
-        <%= f.submit 'Envoyer' %>
-    <% end %>
-
-    
+        <%= simple_form_for [@advert, @comment] do |f| %>
+            <%= f.input :content, label: false, placeholder: 'Ajouter un commentaire' %>
+            <%= f.submit 'Envoyer' %>
+        <% end %>
     </div>
     
 </div>
