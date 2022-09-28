@@ -1,11 +1,37 @@
-<%= simple_form_for(advert) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :type_ad, collection: ['Lost', 'Find', 'See'] %>
-  <%= f.input :phone %>
-  <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-   %>
-  <%= f.input :content %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="form-advert">
+
+  <%= simple_form_for(advert) do |f| %>
+
+  <div class="label-input">
+    <%= f.input :name, label: "Name of your pet" %>
+  </div>
+
+  <div class="label-input">
+    <%= f.input :type_ad, label: "Did you lost, found or seen a pet?", collection: ['Lost', 'Find', 'See'] %>
+  </div>
+
+  <div class="label-input">
+    <%= f.input :phone, label: "Give you phone number if you want people to call you" %>
+  </div>
+
+  <div class="label-input">
+    <%= f.input :address, label: "Where did you lost/found/seen a pet?", input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+  </div>
+
+  <div class="label-input">
+    <%= f.input :content, label: "Tell us why you post a add." %>
+  </div>
+
+  <div class="label-input">
+    <%= f.input :photos, label: "Do you have some pictures of your pet?", as: :file, input_html: { multiple: true } %>
+    <p>(To select multiples pictures, press the CTRL key. The first pictures selected will be the main one)</p>
+  </div>
+  <div class="submit">
+    <%= f.submit "Envoyer" %>
+  </div>
+  
+  <% end %>
+
+</div>
