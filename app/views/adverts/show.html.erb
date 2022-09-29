@@ -24,7 +24,10 @@
   </div>
   
   <div class="space-between"></div>
-  <%= render 'shared/map', markers: @markers %>
+  <div id="map">
+    <%= render 'shared/map', markers: @markers %>
+  </div>
+  
   <div class="space-between"></div>
 
   <% @advert.comments.each do |comment| %>
@@ -34,6 +37,8 @@
   <%= render 'shared/comment-adv', advert: @advert, comment: @comment %>
 
   <%= link_to "Back to the adverts", adverts_path  %>
+
+  <div id="bottom"></div>
 
 </div>
 
