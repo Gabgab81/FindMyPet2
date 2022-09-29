@@ -1,7 +1,19 @@
-<% @userConversations.each do |userConversation| %>
-    <p>Conversation : <%= userConversation.conversation_id %> </p>
-    <%= link_to "Aller a cette conversation", conversation_path(userConversation.conversation_id) %>
-    <%= link_to "Delete", conversation_path(userConversation.conversation_id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
-<p></p>
-<%= link_to "home", root_path %>
+<div class="user_conversations-index">
+
+    <% if @userConversations.count == 0 %>
+        <div class="space-between"></div>
+        <div class="empty-message">
+            <p>You don't have any message yet!</p>
+        </div>
+        
+    <% else %>
+        <% @userConversations.each do |userConversation| %>
+                <%= render 'shared/card-user-conversation', userConversation: userConversation %>
+        <% end %>
+    <% end %>
+
+
+    <div class="space-between"></div>
+
+
+</div>
