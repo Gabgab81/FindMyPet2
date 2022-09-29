@@ -1,18 +1,23 @@
 .not-current_user, .current_user{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     margin: 10px 130px;
     width: fit-content;
     height: fit-content;
     border-radius: 10px;
     box-shadow: 0px 0px 5px 1px rgba(5, 47, 95, 0.3);
     padding: 10px 20px;
+    p.date{
+        font-size: 12px;
+        font-style: italic;
+        // font-weight: 100;
+    }
 }
 
 .not-current_user{
-    background: white;
+    background-color: white;
     position: relative;
+    align-items: start;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     
@@ -31,6 +36,7 @@
 
 .current_user{
     color: white;
+    align-items: end;
     background: rgba(5, 47, 95, 1);
     position: relative;
     -moz-border-radius: 10px;
@@ -58,4 +64,4 @@
     display: flex;
     justify-content: start;
 }
-    
+
