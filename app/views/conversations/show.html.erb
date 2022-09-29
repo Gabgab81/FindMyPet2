@@ -22,14 +22,15 @@
       
   <% end %>
 
-  
-
-  <%= simple_form_for(@message) do |f| %>
-    <%= f.input :content %>
-    <%= f.hidden_field :conversation_id, value: @conversation.id, readonly: true %>
-    <%= f.submit %>
-  <% end %>
-
-  <%= link_to "Back", :back %>
+  <div class="comment-adv">
+    <div class="simple-form">
+        <%= simple_form_for(@message) do |f| %>
+            <%= f.input :content, label: false, placeholder: 'Message' %>
+            <%= f.hidden_field :conversation_id, value: @conversation.id, readonly: true %>
+            <%= f.submit 'Envoyer' %>
+        <% end %>
+    </div>
+    
+</div>
 
 </div>
