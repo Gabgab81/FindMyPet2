@@ -1,13 +1,35 @@
-<p>Conversation : <%= @conversation.id %> </p>
-<% @messages.each do |message| %>
-    <p> <%= message.user.name %> </p>
-    <p> <%= message.content %> </p>
-<% end %>
+<div class="conversation-show">
+  <div class="space-between"></div>
 
-<%= simple_form_for(@message) do |f| %>
-  <%= f.input :content %>
-  <%= f.hidden_field :conversation_id, value: @conversation.id, readonly: true %>
-  <%= f.submit %>
-<% end %>
+  <div class="img-username">
 
-<%= link_to "Back", :back %>
+      <div class="outside-user-img">
+          <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
+          </div>
+      </div>
+      
+      <div class="info-user">
+          <h3><%= @conversation.users.find{|n| n!= current_user}.name %></h3>
+      </div>
+
+  </div>
+
+  <div class="space-between"></div>
+  
+  <% @messages.each do |message| %>
+
+    <%= render 'message', message: message %>
+      
+  <% end %>
+
+  
+
+  <%= simple_form_for(@message) do |f| %>
+    <%= f.input :content %>
+    <%= f.hidden_field :conversation_id, value: @conversation.id, readonly: true %>
+    <%= f.submit %>
+  <% end %>
+
+  <%= link_to "Back", :back %>
+
+</div>

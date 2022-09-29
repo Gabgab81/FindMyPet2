@@ -1,0 +1,61 @@
+.not-current_user, .current_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 130px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px rgba(5, 47, 95, 0.3);
+    padding: 10px 20px;
+}
+
+.not-current_user{
+    background: white;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    
+}
+.not-current_user:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 5px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid rgba(5, 47, 95, 0.1);
+    border-bottom: 13px solid transparent;
+}
+
+.current_user{
+    color: white;
+    background: rgba(5, 47, 95, 1);
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
+}
+.current_user:before {
+    content: "";
+    position: absolute;
+    right: -25px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 26px solid rgba(5, 47, 95, 0.5);
+    border-bottom: 13px solid transparent;
+}
+
+.message-current{
+    display: flex;
+    justify-content: end;
+}
+
+.message-not-current{
+    display: flex;
+    justify-content: start;
+}
+    

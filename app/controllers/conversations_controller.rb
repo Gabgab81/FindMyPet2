@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
         @conversation = Conversation.find(params[:id])
         @messages = Message.where(conversation_id: @conversation)
         @message = Message.new
-
+        # raise
     end
 
     def destroy

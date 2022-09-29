@@ -1,0 +1,14 @@
+<% if message.user == current_user %>
+    <div class="message-current">
+        <div class="current_user">
+            <p> <%= message.content %> </p>
+        </div>
+    </div>
+<% else %>
+    <div class="message-not-current">
+        <div class="not-current_user">
+            <p> <%= message.content %> </p>
+        </div>
+    </div>
+<% end %>
+  
