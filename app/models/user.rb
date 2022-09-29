@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :UserConversation, dependent: :destroy
 
+  has_many :conversation, through: :UserConversations
+
   validates :name, presence: true, length: { minimum: 3 }
 
 end
