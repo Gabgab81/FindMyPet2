@@ -1,17 +1,52 @@
-<%= @user.name %>
-<p></p>
-<% @adverts.each do |advert| %>
-  <h2><%= advert.name %></h2>
-  <p>Type: <%= advert.type_ad %></p>
+<div class="user_adverts-user">
+  <div class="space-between"></div>
 
-  
-  <p>Address: <%= advert.address %></p>
-  <p>Content: <%= advert.content %></p>
-  <%= link_to "Show your advert", advert_path(advert) %>
-  <% if advert.user == current_user %>
-    <%= link_to "Edit your advert", edit_advert_path(advert) %>
-    <%= link_to "Delete this advert", advert_path(advert), method: :delete, data: { confirm: "Are you sure?" } %>
+  <div class="type-adv">
+    
+    <div class= <%= params[:type_ad] == "" || params[:type_ad].nil? ? "radio-selected" : "radio"  %> >
+      <%= form_with url: "/users/#{@user.id}/user_adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "" %>
+          <%= form.submit "All" %>
+      <% end %>
+    </div>
+
+    <div class= <%= params[:type_ad] == "Find" ? "radio-selected" : "radio"  %> >
+      <%= form_with url: "/users/#{@user.id}/user_adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "Find" %>
+          <%= form.submit "Find" %>
+      <% end %>
+    </div>
+
+    <div class= <%= params[:type_ad] == "Lost" ? "radio-selected" : "radio"  %> >
+      <%= form_with url: "/users/#{@user.id}/user_adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "Lost" %>
+          <%= form.submit "Lost" %>
+      <% end %>
+    </div>
+
+    <div class= <%= params[:type_ad] == "See" ? "radio-selected" : "radio"  %> >
+      <%= form_with url: "/users/#{@user.id}/user_adverts", method: :get do |form| %>
+          <%= form.hidden_field :type_ad, value: "See" %>
+          <%= form.submit "See" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="space-between"></div>
+
+  <% @adverts.each do |advert| %>
+
+    <%= render 'shared/big-cards-advert', advert: advert %>
+
+    <div class="user_adverts-user-link">
+      <div class="user_adverts-user-link-inside">
+        <% if advert.user == current_user %>
+          <%= link_to "Edit your advert", edit_advert_path(advert) %>
+          <%= link_to "Delete your advert", advert_path(advert), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </div> 
+    </div>
+    
   <% end %>
-<% end %>
-<p></p>
-<%= link_to "Back", :back %>
+
+</div>
