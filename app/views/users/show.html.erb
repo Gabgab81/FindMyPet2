@@ -1,7 +1,36 @@
-<h2>Show of user</h2>
-<h3><%= @user.name %></h3>
- <%= link_to "Edit your profile", edit_user_registration_path %>
- <p></p>
- <%= link_to "Delete your profile", user_registration_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
- <p></p>
- <%= link_to "Back to the adverts", adverts_path  %>
+<div class="show-user">
+    <div class="space-between"></div>
+
+    <div class="img-username">
+
+        <div class="outside-user-img">
+            <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
+            </div>
+        </div>
+
+        <div class="info-user">
+            <h3><%= current_user.name %></h3>
+        </div>
+
+    </div>
+
+    <div class="space-between"></div>
+    <div class="show-info-user">
+        <p>You had created your account the <%= @user.created_at.strftime("%A %-d %B %Y")  %>.</p>
+        <p><%= formatted_duration(Time.current - @user.created_at) %> with us.</p>
+        <p><%= @user.adverts.count %> adverts 
+        ( <%= @user.adverts.where(type_ad: "Lost").count %> lost(s), 
+        <%= @user.adverts.where(type_ad: "Find").count %> find(s) and 
+        <%= @user.adverts.where(type_ad: "See").count %> see(s) ).</p>
+        <p><%= @user.conversations.count %> conversation(s).</p>
+        <p><%= @user.messages.count %> message(s).</p>
+    </div>
+
+    <div class="space-between"></div>
+
+    <div class="show-user-link">
+        <p><%= link_to "Delete your profile", user_registration_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+    </div>
+
+</div>
+
