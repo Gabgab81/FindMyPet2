@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 
     def show
-
+        # raise
     end
 
     def user_adverts
