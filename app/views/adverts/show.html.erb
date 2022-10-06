@@ -16,7 +16,14 @@
           </div>
         </div>
       <% else %>
-        <%= render 'shared/contact-user', advert: @advert %>
+        <% if @advert.user.conversations.any?{|conv| conv.users.any? {|user| user == current_user}} %>
+          <div class="already-conv">
+            <p>You are already in contact with <%= @advert.user.name %></p>
+            <%= link_to "Shall you continue?", conversation_path(@advert.user.conversations.find{|conv| conv.users.any? {|user| user == current_user}}) %>
+          </div>
+        <% else %>
+          <%= render 'shared/contact-user', advert: @advert %>
+        <% end %>
       <% end %>
       
     </div>
