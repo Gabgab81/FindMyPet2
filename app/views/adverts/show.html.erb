@@ -6,8 +6,6 @@
 
     <div class="contact-card-user">
       <%= render 'shared/card-user', advert: @advert %>
-      <%= render 'shared/contact-user', advert: @advert %>
-
       
       <% if @advert.user == current_user %>
         <div class="user-choice-adv">
@@ -17,6 +15,8 @@
             <%= link_to "Effacer", advert_path(@advert), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
         </div>
+      <% else %>
+        <%= render 'shared/contact-user', advert: @advert %>
       <% end %>
       
     </div>
