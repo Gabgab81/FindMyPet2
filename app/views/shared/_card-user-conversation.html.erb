@@ -5,13 +5,23 @@
         <% end %>
     </div>
     <%= link_to conversation_path(userConversation.conversation_id), class:'link-card' do %>
+
+        <%otherUser =  userConversation.conversation.users.select{|n| n != current_user}.empty? ? current_user.name : userConversation.conversation.users.select{|n| n != current_user}.first %>
+
         <div class="outside-user-img">
-            <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
-            </div>
+
+            <% if otherUser.photo.key.nil? %>
+                <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
+                </div>
+            <% else %>
+                <div class="user-img" style="background-image: url('<%= cl_image_path otherUser.photo.key %>'); background-size: cover; background-position: center;">
+                </div>
+            <% end %>
+
         </div>
         
         <div class="info-user">
-            <h3><%= userConversation.conversation.users.select{|n| n != current_user}.empty? ? current_user.name : userConversation.conversation.users.select{|n| n != current_user}.first.name %></h3>
+            <h3><%= otherUser.name %></h3>
             <p><%= userConversation.conversation.messages.count %> messages </p>
             <p><%= userConversation.conversation.messages.last.content %> </p>
         </div>
