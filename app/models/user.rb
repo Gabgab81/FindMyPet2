@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :UserConversations, dependent: :destroy
+  has_one_attached :photo
 
   has_many :conversations, through: :UserConversations
 
