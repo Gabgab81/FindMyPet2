@@ -1,18 +1,21 @@
 
 <form action="/adverts" method="get">
-    <div class="searchTop">
-        <div class="search-adress">
-            <label for="address"></label>
-            <input type="text" name="address" id="address" placeholder="Address">
-        </div>
+    <%# <div class="search-position-set" data-action="scroll->navbar-homepage#searchscroll"> %>
+        <div class="searchTop">
+            <div class="search-adress">
+                <label for="address"></label>
+                <input type="text" name="address" id="address" placeholder="Address">
+            </div>
 
-        <div class="search-distance">
-            <label for="distance"></label>
-            <input type="text" name="distance" id="distance" value="50"><span>km</span>
+            <div class="search-distance">
+                <label for="distance"></label>
+                <input type="text" name="distance" id="distance" value="50"><span>km</span>
+            </div>
+            <input type="hidden" name="type_ad" value="">
+            <div class="search-submit">
+                <input type="submit" value="S">
+            </div>
         </div>
-        <input type="hidden" name="type_ad" value="">
-        <div class="search-submit">
-            <input type="submit" value="S">
-        </div>
-    </div>
+    <%# </div> %>
+    
 </form>
