@@ -19,3 +19,141 @@
   display: flex;
   justify-content: end;
 }
+
+// search position
+
+.search-position-set.home{
+  transition: transform 0.5s;
+  // position: relative;
+  // bottom: -605px;
+  transform: translateY(605px);
+}
+
+.search-position-set.transition{
+  transition: transform 0.5s;
+  transform: translateY(0);
+  // position: relative;
+  // bottom: 0;
+}
+
+.search-position-set{
+  position: relative;
+  bottom: 0;
+}
+
+// search position
+
+// logo position
+
+.logo-position-set{
+  transition: none;
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
+
+.logo-position-set.transition{
+  // transition: all 0.5s;
+  // // transition-timing-function: cubic-bezier(0,.71,.01,.98);
+  // transition-property: left bottom;
+  // position: relative;
+  // left: 0;
+  // bottom: 0;
+  transition: transform 0.5s;
+  transform: translate(0, 0);
+}
+
+.logo-position-set.home{
+  // transition: all 0.5s;
+  // // transition-timing-function: cubic-bezier(0,.71,.01,.98);
+  // transition-property: left bottom;
+  // position: relative;
+  // left: 31%;
+  // bottom: -100px;
+  transition: transform 0.5s;
+  transform: translate(35vw, 130px);
+}
+
+// logo position
+
+// background img
+
+.img-home-page{
+  // transition: transform 1s ease;
+  // transform-origin: top;
+
+  // transition: display 5s;
+  // transition-timing-function: cubic-bezier(0,.71,.01,.98);
+  background-image: asset-url("imgBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logo-position{
+    width: 30%;
+    height: 380px;
+  }
+
+  h2{
+    margin: 30px 0px;
+  }
+  p{
+    margin: 10px, 0px;
+  }
+  .space-between{
+    // height: 30px;
+  }
+  .search-position{
+    width: 30%;
+    height: 120px;
+  }
+  
+}
+
+.img-home-page.transition{
+  background-image: asset-url("imgBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  // transform: scale(0.5) translateY(100000px);
+  width: 100%;
+  display: none;
+  height: 0;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+
+    .logo-position{
+      // background-color: red;
+      width: 30%;
+      height: 380px;
+      display: none;
+    }
+
+    h2{
+      margin: 30px 0px;
+      display: none;
+    }
+    p{
+      margin: 10px, 0px;
+      display: none;
+    }
+    .space-between{
+      // height: 30px;
+    }
+    .search-position{
+      // background-color: red;
+      width: 30%;
+      height: 120px;
+      display: none;
+    }
+    a{
+      display: none;
+    }
+  
+}
+
+// background img

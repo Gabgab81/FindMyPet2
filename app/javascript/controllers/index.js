@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import NavbarHomepageController from "./navbar_homepage_controller"
+application.register("navbar-homepage", NavbarHomepageController)

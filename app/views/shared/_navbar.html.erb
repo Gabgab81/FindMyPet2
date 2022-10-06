@@ -1,19 +1,21 @@
+<div data-controller="navbar-homepage" data-action="scroll@window->navbar-homepage#scroll">
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
-    <div class="div-nav-left">
+    <%# logo %>
+
+    <div class="div-nav-left <%= action_name == "home"? "logo-position-set home" : "logo-position-set" %>" data-navbar-homepage-target="logoposition">
       <%= link_to root_path do %>
         <%= render "shared/logo" %>
       <% end %>
     </div>
 
-    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">I am the button</span>
-    </button> %>
-
+    <%# logo %>  
+    
     <%# Search %>
 
-    <div class="div-nav-center">
+    <div class="div-nav-center <%= action_name == "home"? "search-position-set home" : "search-position-set" %>" data-navbar-homepage-target="search">
       <%= render "shared/searchTop" %>
     </div>
     
@@ -51,4 +53,20 @@
       </div>
     </div>
   </div>
+</div>
+
+<%# background img %>
+
+<div class="img-home-page <%= action_name == "home"? "img-home-page" : "d-none" %>" data-navbar-homepage-target="img">
+  <div class="logo-position"></div>
+  <h2>Let's find your animal together</h2>
+  <p>Where did you lose your animal?</p>
+  <div class="space-between"></div>
+  <div class="search-position"></div>
+  <%= link_to "Nobody saw it? Let people knows.", new_advert_path %>
+
+</div>
+
+<%# background img %>
+
 </div>
