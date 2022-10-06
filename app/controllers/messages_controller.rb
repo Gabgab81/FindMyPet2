@@ -33,7 +33,6 @@ class MessagesController < ApplicationController
             end
             redirect_to :back
         end
-        
     end
 
 # end
