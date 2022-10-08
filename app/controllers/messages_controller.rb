@@ -20,13 +20,23 @@ class MessagesController < ApplicationController
             @message.conversation = Conversation.find(params[:message][:conversation_id])
             @conversation = nil
         end
-
+        
         if @message.save
             if @conversation
                 @conversation_current_user.save
                 @conversation_advert_user.save
+                redirect_to conversation_path(@message.conversation_id)
+            else
+                ConversationChannel.broadcast_to(
+                @message.conversation, {content: @message.content, id: @message.id, user: @message.user.id, date: @message.created_at})
             end
-            redirect_to conversation_path(@message.conversation_id)
+            # ConversationChannel.broadcast_to(
+            #     @message.conversation, {content: @message.content, id: @message.id, user: @message.user.id, date: @message.created_at})
+                # render_to_string(partial: "conversations/message", locals: {message: @message})
+                # )
+                # head :ok
+            # raise
+            # redirect_to conversation_path(@message.conversation_id)
         else
             if @conversation
                 @conversation.destroy

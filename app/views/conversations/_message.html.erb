@@ -1,16 +1,17 @@
-<% if message.user == current_user %>
-    <div class="message-current">
-        <div class="current_user">
-            <p> <%= message.content %> </p>
-            <p class="date"> <%= message.created_at.strftime("The %A %-d %B %Y") %> </p>
+<div id="message-<%= message.id %>" >
+    <% if message.user == current_user %>
+        <div class="message-current">
+            <div class="current_user">
+                <p> <%= message.content %> </p>
+                <p class="date"> <%= message.created_at.strftime("%d/%m/%Y") %> </p>
+            </div>
         </div>
-    </div>
-<% else %>
-    <div class="message-not-current">
-        <div class="not-current_user">
-            <p> <%= message.content %> </p>
-            <p class="date"> <%= message.created_at.strftime("The %A %-d %B %Y") %> </p>
+    <% else %>
+        <div class="message-not-current">
+            <div class="not-current_user">
+                <p> <%= message.content %> </p>
+                <p class="date"> <%= message.created_at.strftime("%d/%m/%Y") %> </p>
+            </div>
         </div>
-    </div>
-<% end %>
-  
+    <% end %>
+</div>
