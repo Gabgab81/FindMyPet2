@@ -25,9 +25,13 @@ class MessagesController < ApplicationController
             if @conversation
                 @conversation_current_user.save
                 @conversation_advert_user.save
-            end
-            ConversationChannel.broadcast_to(
+                redirect_to conversation_path(@message.conversation_id)
+            else
+                ConversationChannel.broadcast_to(
                 @message.conversation, {content: @message.content, id: @message.id, user: @message.user.id, date: @message.created_at})
+            end
+            # ConversationChannel.broadcast_to(
+            #     @message.conversation, {content: @message.content, id: @message.id, user: @message.user.id, date: @message.created_at})
                 # render_to_string(partial: "conversations/message", locals: {message: @message})
                 # )
                 # head :ok
