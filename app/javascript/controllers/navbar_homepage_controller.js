@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["logoposition", "logo", "search", "img"]
   connect() {
     // console.log("Im connect")
-    console.log(this.imgTarget.style)
+    // console.log(this.imgTarget.style)
     if (window.location.pathname == '/') {
       this.element.dataset.action = "scroll@window->navbar-homepage#scroll"
     } else {
