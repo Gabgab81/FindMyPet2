@@ -1,12 +1,23 @@
 .conversation-show{
 
+    display: flex;
+    flex-direction: column;
+    // align-items: stretch;
+    justify-content: space-between;
+    min-height: 80vh;
+
+    .block-user-card-messages{
+        flex: 1;
+    }
+
     .space-between{
         width: 100%;
         height: 30px;
     }
 
     .img-username{
-        margin-left: 30px;
+        margin-left: 90px;
+        margin-top: 30px;
         display: flex;
         align-items: center;
         justify-content: space-evenly;

@@ -41,7 +41,10 @@ export default class extends Controller {
             } 
           }
           this.messagesTarget.insertAdjacentHTML("beforeend", createHtml(data))
-          this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+          // this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+          document.getElementById(`message-${data["id"]}`).scrollIntoView();
+          console.log(this.messagesTarget)
+          console.log(`message-${data["id"]}`)
         }
 
         

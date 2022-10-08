@@ -1,5 +1,16 @@
 .user_conversations-index{
 
+    .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // margin-top: 30px;
+        margin-bottom: 20px;
+        .hr{
+            width: 35%;
+            border-top: 1px solid $dblue; 
+        }
+    }
     .empty-message{
         width: 100%;
         p{

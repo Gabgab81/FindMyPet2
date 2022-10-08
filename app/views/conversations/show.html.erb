@@ -2,44 +2,49 @@
 data-controller="conversation-subscription"
 data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
 data-conversation-subscription-user-id-value="<%= @message.user.id%>" > 
-
-  <div class="space-between"></div>
-
-  <div class="img-username">
-
-        <% otherUser = @conversation.users.find{|n| n!= current_user} %>
-
-      <div class="outside-user-img">
-
-          <% if otherUser.photo.key.nil? %>
-                <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
-                </div>
-            <% else %>
-                <div class="user-img" style="background-image: url('<%= cl_image_path otherUser.photo.key %>'); background-size: cover; background-position: center;">
-                </div>
-            <% end %>
-
-      </div>
-      
-      <div class="info-user">
-          <h3><%= otherUser.name %></h3>
-      </div>
-
-  </div>
-
-  <div class="space-between"></div>
-
-  <div data-conversation-subscription-target="messages">
   
-    <% @messages.each do |message| %>
-       
-        <%= render 'message', message: message %>
+  <div class="block-user-card-messages">
+
+    <div class="space-between"></div>
+  
+    <div class="img-username">
+
+          <% otherUser = @conversation.users.find{|n| n!= current_user} %>
+
+        <div class="outside-user-img">
+
+            <% if otherUser.photo.key.nil? %>
+                  <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
+                  </div>
+              <% else %>
+                  <div class="user-img" style="background-image: url('<%= cl_image_path otherUser.photo.key %>'); background-size: cover; background-position: center;">
+                  </div>
+              <% end %>
+
+        </div>
+        
+        <div class="info-user">
+            <h3><%= otherUser.name %></h3>
+        </div>
+
+    </div>
+
+    <div class="space-between"></div>
+
+    <div data-conversation-subscription-target="messages">
     
-    <% end %>
+      <% @messages.each do |message| %>
+        
+          <%= render 'message', message: message %>
+      
+      <% end %>
 
+    </div>
+  
   </div>
   
-<p><%= current_user.id %></p>
+  
+  
   <div class="comment-adv">
     <div class="simple-form">
         <%= simple_form_for [@message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }} do |f| %>
