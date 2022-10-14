@@ -23,7 +23,7 @@
         <%= f.input :photo, as: :file %>
         <%= f.input :password,
                     required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    hint: ("7 characters minimum including 1 uppercase letter, 1 number and 1 special character"),
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: true,

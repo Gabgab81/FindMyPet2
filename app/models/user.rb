@@ -13,5 +13,12 @@ class User < ApplicationRecord
   has_many :conversations, through: :UserConversations
 
   validates :name, presence: true, length: { minimum: 3 }
+  validate :password_regex
+
+  def password_regex
+    return if password.blank? || password =~ /\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{8,}\z/
+
+    errors.add :password, 'Password should have more than 7 characters including 1 uppercase letter, 1 number, 1 special character'
+  end
 
 end
