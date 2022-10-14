@@ -44,7 +44,7 @@ data-conversation-subscription-user-id-value="<%= @message.user.id%>" >
   </div>
   
   
-  
+  <div id="bottomConv"></div>
   <div class="comment-adv">
     <div class="simple-form">
         <%= simple_form_for [@message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }} do |f| %>
