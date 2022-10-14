@@ -4,7 +4,9 @@
   border-bottom: 2px solid rgba(5, 47, 95, 0.1);
   // position: fixed;
 }
-
+.container-fluid{
+  width: 100%;
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -68,7 +70,7 @@
   // transition: all 0.5s;
   // // transition-timing-function: cubic-bezier(0,.71,.01,.98);
   // transition-property: left bottom;
-  // position: relative;
+  position: relative;
   // left: 31%;
   // bottom: -100px;
   transition: transform 0.5s;
