@@ -37,6 +37,7 @@
 }
 
 .logo.transition{
+    // vertical-align: top;
     background-color: white;
     // transition: all 0.5s;
     // transition-timing-function: cubic-bezier(0,.71,.01,.98);
@@ -92,7 +93,7 @@
     transition-property: border-radius, transform;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-
+    // vertical-align: top;
     transform: scale(1.2, 1.3);
 
     background-color: white;
@@ -109,6 +110,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    
     .logo-inside{
         transition-property: border-radius, transform;
         transition-duration: 0.3s;
