@@ -4,10 +4,12 @@ class AdvertsController < ApplicationController
 
     def new
         @advert = Advert.new
+        authorize @advert
     end
 
     def create
         @advert = Advert.new(advert_params)
+        authorize @advert
         @advert.user = current_user
         if @advert.save
             redirect_to advert_path(@advert)
@@ -65,6 +67,7 @@ class AdvertsController < ApplicationController
             }
         end
         # raise
+        
     end
 
     def edit
@@ -93,6 +96,7 @@ class AdvertsController < ApplicationController
 
     def set_advert
         @advert = Advert.find(params[:id])
+        authorize @advert
     end
 
 end

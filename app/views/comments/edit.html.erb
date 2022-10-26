@@ -1,3 +1,61 @@
+<div class="show-adv">
+  <div class="space-between"></div>
+  <div class="card-adv-user">
+  
+    <%= render 'shared/show-card-advert', advert: @advert %>
+
+    <div class="contact-card-user">
+      <%= render 'shared/card-user', advert: @advert %>
+      
+      <% if @advert.user == current_user %>
+        <div class="user-choice-adv">
+          <h3>Votre annonce</h3>
+          <div class="edit-delete">
+            <%= link_to "Modifier", edit_advert_path(@advert) %>
+            <%= link_to "Effacer", advert_path(@advert), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      <% elsif @advert.user.conversations.any?{|conv| conv.users.any? {|user| user == current_user}} %>
+          <div class="already-conv">
+            <p>You are already in contact with <%= @advert.user.name %></p>
+            <%= link_to "Shall you continue?", conversation_path(@advert.user.conversations.find{|conv| conv.users.any? {|user| user == current_user}}) %>
+          </div>
+      <% elsif !user_signed_in? %>
+        <div class="already-conv">
+          <p>You need to login to contact with <%= @advert.user.name %></p>
+          <%= link_to "Login?", new_user_session_path %>
+        </div>
+      <% else %>
+          <%= render 'shared/contact-user', advert: @advert %>
+      <% end %>
+      
+    </div>
+    
+  </div>
+  
+  <div class="space-between"></div>
+  <div id="map">
+    <%= render 'shared/map', markers: @markers %>
+  </div>
+  
+  <div class="space-between"></div>
+
+  <% @advert.comments.each do |comment| %>
+    <%= render 'shared/card-comment', comment: comment %>
+  <% end %>
+
+  <%= render 'shared/comment-adv', advert: @advert, comment: @comment %>
+
+  <div id="bottom"></div>
+
+</div>
+
+
+
+
+
+
+
 <h1>Advert from <%= @comment.advert.user_id %></h1>
 
 <h2><%= @comment.advert.name %></h2>
