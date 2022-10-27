@@ -13,6 +13,16 @@ class CommentsController < ApplicationController
     def edit
         # @comment = Comment.find(params[:id])
         @advert = @comment.advert
+        @adverts = Advert.where(id: @comment.advert.id)
+        @message = Message.new
+        @markers = @adverts.geocoded.map do |advert|
+            {
+                lat: advert.latitude,
+                lng: advert.longitude,
+                info_window: render_to_string(partial: "shared/info_window", locals: {advert: advert})
+                # image_url: helpers.asset_url("/cartoon-dogs1.png")
+            }
+        end
     end
 
 

@@ -13,10 +13,11 @@
 
     </div>
     <div class="comment">
-        <p><%= comment.content %></p>
-        <% if comment.user == current_user %>
-            <%= link_to "Modifier", edit_comment_path(comment)  %>
-            <%= link_to "Effacer", comment_path(comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+        
+        <%= simple_form_for(@comment )do |f| %>
+            <%= f.input :content, label: false %>
+            <%= f.submit "Change modification" %>
         <% end %>
+        
     </div>   
 </div>

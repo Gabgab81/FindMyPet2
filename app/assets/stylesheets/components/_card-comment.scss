@@ -57,5 +57,17 @@
         a{
             margin-right: 5px;
         }
+        input { 
+            all: unset;
+            color: $brown;
+            &:hover{
+                color: $dblue;
+                cursor: pointer;
+            }
+        }
+        textarea {
+            // background-color: blue;
+            width: 98%;
+        }
     }
 }
