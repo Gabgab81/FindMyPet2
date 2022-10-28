@@ -3,12 +3,13 @@ class UsersController < ApplicationController
 
 
     def show
-        # raise
+        authorize @user
     end
 
     def user_adverts
         # @adverts = Advert.where(user_id: @user)
         # @adverts = @user.adverts
+        authorize @user
         if !params[:type_ad].nil? && params[:type_ad] != ''
             @adverts = @user.adverts.where(type_ad: params[:type_ad])
         else
