@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
         @comment.user = current_user
         @comment.advert = Advert.find(params[:advert_id])
         @comment.save
-        redirect_to advert_path(@comment.advert)
+        redirect_to advert_path(@comment.advert, anchor: "bottom", data: { turbo: false })
     end
 
     def edit
