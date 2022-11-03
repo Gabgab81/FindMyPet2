@@ -12,11 +12,14 @@
         </div>
 
     </div>
-    <div class="comment">
-        <p><%= comment.content %></p>
-        <% if comment.user == current_user %>
-            <%= link_to "Modifier", edit_comment_path(comment)  %>
-            <%= link_to "Effacer", comment_path(comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-        <% end %>
-    </div>   
+    <div id="<%= comment.id %>">
+        <div class="comment">
+            <p><%= comment.content %></p>
+            <% if comment.user == current_user %>
+                <%= link_to "Modifier", edit_comment_path(comment)  %>
+                <%= link_to "Effacer", comment_path(comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+            <% end %>
+        </div> 
+    </div>
+    
 </div>
