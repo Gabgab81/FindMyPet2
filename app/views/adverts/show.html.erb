@@ -1,4 +1,4 @@
-<div class="show-adv">
+<div class="show-adv" data-controller="insert-in-list">
   <div class="space-between"></div>
   <div class="card-adv-user">
     <%= link_to "bottom", advert_path(@advert, anchor: 'bottom') %>
@@ -40,10 +40,12 @@
   </div>
   
   <div class="space-between"></div>
-
-  <% @advert.comments.each do |comment| %>
-    <%= render 'shared/card-comment', comment: comment %>
-  <% end %>
+  <div data-insert-in-list-target="items">
+    <% @advert.comments.each do |comment| %>
+      <%= render 'shared/card-comment', comment: comment %>
+    <% end %>
+  </div>
+  
 
   <%= render 'shared/comment-adv', advert: @advert, comment: @comment %>
 

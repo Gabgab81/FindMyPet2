@@ -5,21 +5,17 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         authorize @comment
         @comment.user = current_user
-        @comment.advert = Advert.find(params[:advert_id])
-        @comment.save
-        # redirect_to advert_path(@comment.advert, anchor: "bottom", data: { turbo: false } )
-        redirect_to @comment
-        # raise
-        # redirect_to advert_path(@comment.advert) + '#bottom'
-        # raise
-        # redirect_to advert_path(@comment.advert, anchor: "bottom"), turbolinks: false
-        # redirect_to(advert_path(@comment.advert, :anchor => "bottom"))
-        # redirect_to advert_path(@comment.advert, anchor: "#{@comment.id}")
-        # redirect_to "#{url_for(@comment.advert)}#bottom"
-        # redirect_to "#{url_for(@commentable)}#comments"
-        # redirect_to :back
-        # redirect_to advert_path(@comment.advert, anchor: dom_id(Comment.find(@comment.id)) , data: { turbo: false })
-    
+        @advert = Advert.find(params[:advert_id])
+        raise
+        respond_to do |format|
+            if @comment.save
+                format.html { redirect_to advert_path(@advert) }
+                format.json # Follow the classic Rails flow and look for a create.json view
+            else
+                format.html { render "adverts/show", status: :unprocessable_entity }
+                format.json # Follow the classic Rails flow and look for a create.json view
+            end
+        end
     end
 
     def edit
