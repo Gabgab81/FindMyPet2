@@ -12,9 +12,8 @@ export default class extends Controller {
     event.preventDefault()
     // console.log("send event", event);
     // console.log('form', this.formTarget.action)
-    console.log('I was here in send')
-    const url = this.formTarget.action
-    console.log(this.formTarget)
+    // const url = this.formTarget.action
+    // console.log(this.formTarget)
     const option = {
       method: "post",
       headers: { "Accept": "application/json", "X-CSRF-Token": this.csrfToken },
@@ -24,9 +23,12 @@ export default class extends Controller {
     fetch(url, option)
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
+        // console.log("data: ", data)
+        if (data.inserted_item) {
+          this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+        }
+        this.formTarget.outerHTML = data.form
       })
-
 
   }
 }

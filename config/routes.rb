@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :adverts do
-    resources :comments, only: [:create]
+    resources :comments, only: :create
   end
 
   resources :comments, only: [:edit, :update, :destroy]
