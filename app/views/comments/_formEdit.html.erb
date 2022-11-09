@@ -1,6 +1,8 @@
 <%= simple_form_for(comment, data: {
 insert_in_list_target: "edit",
+# insert_in_list_comment_id_value: "#{comment.id}",
 action: "submit->insert-in-list#update"})do |f| %>
     <%= f.input :content, label: false %>
     <%= f.submit "Change modification" %>
 <% end %>
+<%=  %>

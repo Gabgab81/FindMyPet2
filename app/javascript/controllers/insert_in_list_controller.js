@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-in-list"
 export default class extends Controller {
+  static values = {commentId: Number}
   static targets = ["items", "form", "edit"]
 
   connect() {
@@ -20,6 +21,7 @@ export default class extends Controller {
       headers: { "Accept": "application/json", "X-CSRF-Token": this.csrfToken },
       body: new FormData(this.formTarget)
     }
+    console.log("commentId", this.commentIdValue)
 
     fetch(url, option)
       .then(response => response.json())
@@ -38,16 +40,19 @@ export default class extends Controller {
     // console.log("Update")
     // console.log(event)
     // event.preventDefault()
-    // console.log("update event", event)
-    console.log("edit: ", this.editTarget)
 
-    const url = this.editTarget.action
-    console.log('this.editTarget.action : ', this.editTarget.action)
-    const option = {
-      method: "post",
-      headers: { "Accept": "application/json"},
-      body: new FormData(this.editTarget)
-    }
+    // console.log("update event", event)
+    // console.log("edit: ", this.editTarget.action)
+    // console.log("commentId", this.commentIdValue)
+    // console.log("form for commentId", this.editTarget)
+
+    // const url = this.editTarget.action
+    // console.log('this.editTarget.action : ', this.editTarget.action)
+    // const option = {
+    //   method: "post",
+    //   headers: { "Accept": "application/json"},
+    //   body: new FormData(this.editTarget)
+    // }
 
     // fetch(url, option)
     //   .then(response => response.json())

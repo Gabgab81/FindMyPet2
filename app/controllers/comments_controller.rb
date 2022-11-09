@@ -57,12 +57,18 @@ class CommentsController < ApplicationController
         end
         
         # respond_to do |format|
-        #     format.html {redirect_to advert_path(@comment.advert)}
+        #     if @comment.save
+        #         format.html {redirect_to advert_path(@comment.advert)}
+        #         format.json
+        #     else
+        #         format.html {render "comments/edit", status: :unprocessable_entity}
+        #         format.json
+        #     end
         # end
         
-
         if @comment.save
-            redirect_to advert_path(@comment.advert)
+            # redirect_to advert_path(@comment.advert)
+            redirect_to "http://localhost:3000/adverts/#{@comment.advert.id}##{@comment.id}", allow_other_host: true
         else
             render "comments/edit", status: :unprocessable_entity
         end
