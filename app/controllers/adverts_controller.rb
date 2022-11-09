@@ -30,7 +30,7 @@ class AdvertsController < ApplicationController
         elsif !params[:type_ad].nil? && params[:type_ad] != ''
             @adverts = Advert.where(type_ad: params[:type_ad])
         else
-            @adverts = Advert.all
+            @adverts = Advert.order(:created_at)
         end
         @markers = @adverts.geocoded.map do |advert|
             {
@@ -58,6 +58,7 @@ class AdvertsController < ApplicationController
         @adverts = Advert.where(id: @advert.id)
         @comment = Comment.new
         @message = Message.new
+        # @comments = @advert.comments.order(:created_at)
         @markers = @adverts.geocoded.map do |advert|
             {
                 lat: advert.latitude,
