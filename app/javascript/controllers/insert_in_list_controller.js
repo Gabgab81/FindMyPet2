@@ -2,17 +2,18 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-in-list"
 export default class extends Controller {
-  static targets = ["items", "form"]
+  static targets = ["items", "form", "edit"]
 
   connect() {
     console.log("I'm insert in list")
+    // console.log("edit :", this.editTarget)
   }
 
   send(event){
     event.preventDefault()
     // console.log("send event", event);
     // console.log('form', this.formTarget.action)
-    // const url = this.formTarget.action
+    const url = this.formTarget.action
     // console.log(this.formTarget)
     const option = {
       method: "post",
@@ -29,6 +30,12 @@ export default class extends Controller {
         }
         this.formTarget.outerHTML = data.form
       })
-
+  }
+  update(event){
+    console.log("Update")
+    console.log(event)
+    // event.preventDefault()
+    // console.log("update event", event)
+    // console.log("edit: ", this.editTarget)
   }
 }
