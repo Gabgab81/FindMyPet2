@@ -40,7 +40,7 @@
   
   <div class="space-between"></div>
   <div data-insert-in-list-target="items">
-    <% @advert.comments.each do |comment| %>
+    <% @advert.comments.order(:created_at).each do |comment| %>
       <%= render 'shared/card-comment', comment: comment %>
     <% end %>
   </div>
