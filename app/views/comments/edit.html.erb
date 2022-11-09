@@ -1,4 +1,4 @@
-<div class="show-adv">
+<div class="show-adv" data-controller="insert-in-list">
   <div class="space-between"></div>
   <div class="card-adv-user">
   
@@ -42,7 +42,7 @@
 
   <% @advert.comments.each do |comment| %>
   <% if comment.id == @comment.id %>
-    <%= render 'shared/card-comment-edit', comment: comment %>
+    <%= render 'comments/card-comment-edit', comment: comment %>
   <% else %>
     <%= render 'shared/card-comment', comment: comment %>
   <% end  %>
