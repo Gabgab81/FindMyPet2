@@ -12,12 +12,14 @@
         </div>
 
     </div>
-    <div class="comment">
-        
-        <%= simple_form_for(@comment )do |f| %>
-            <%= f.input :content, label: false %>
-            <%= f.submit "Change modification" %>
-        <% end %>
-        
-    </div>   
+    <div id="<%= comment.id %>">
+        <div class="comment">
+            
+            <%= simple_form_for(@comment )do |f| %>
+                <%= f.input :content, label: false %>
+                <%= f.submit "Change modification" %>
+            <% end %>
+            
+        </div>   
+    </div>
 </div>

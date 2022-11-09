@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
     def update
         # @comment = Comment.find(params[:id])
         @comment.update(comment_params)
-        redirect_to advert_path(@comment.advert)
+        redirect_to advert_path(@comment.advert, anchor: 'bottom')
         # redirect_to @comment
     end
 
@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
         @comment.destroy
         # raise
         # redirect_to advert_path(@comment.advert)
-        redirect_to advert_path(@advert), status: :see_other
+        redirect_to advert_path(@advert, ), status: :see_other
     end
 
 
