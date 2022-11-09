@@ -42,7 +42,7 @@
 
   <% @advert.comments.each do |comment| %>
   <% if comment.id == @comment.id %>
-    <%= render 'shared/card-comment-edit', comment: comment %>
+    <%= render 'comments/card-comment-edit', comment: comment %>
   <% else %>
     <%= render 'shared/card-comment', comment: comment %>
   <% end  %>

@@ -28,14 +28,32 @@ export default class extends Controller {
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
         }
+        // console.log("outerHTML: ", this.formTarget.outerHTML)
+        // console.log("data.form: ", data.form)
+        // console.log("data: ", data)
         this.formTarget.outerHTML = data.form
       })
   }
   update(event){
-    console.log("Update")
-    console.log(event)
+    // console.log("Update")
+    // console.log(event)
     // event.preventDefault()
     // console.log("update event", event)
-    // console.log("edit: ", this.editTarget)
+    console.log("edit: ", this.editTarget)
+
+    const url = this.editTarget.action
+    console.log('this.editTarget.action : ', this.editTarget.action)
+    const option = {
+      method: "post",
+      headers: { "Accept": "application/json"},
+      body: new FormData(this.editTarget)
+    }
+
+    // fetch(url, option)
+    //   .then(response => response.json())
+    //   .then((data) => {
+    //     console.log("data: ", data)
+    //   })
+
   }
 }

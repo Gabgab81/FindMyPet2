@@ -45,8 +45,27 @@ class CommentsController < ApplicationController
     def update
         # @comment = Comment.find(params[:id])
         @comment.update(comment_params)
-        redirect_to advert_path(@comment.advert, anchor: 'bottom')
-        # redirect_to @comment
+        @advert = @comment.advert
+        @adverts = Advert.where(id: @comment.advert.id)
+        @markers = @adverts.geocoded.map do |advert|
+            {
+                lat: advert.latitude,
+                lng: advert.longitude,
+                info_window: render_to_string(partial: "shared/info_window", locals: {advert: advert})
+                # image_url: helpers.asset_url("/cartoon-dogs1.png")
+            }
+        end
+        
+        # respond_to do |format|
+        #     format.html {redirect_to advert_path(@comment.advert)}
+        # end
+        
+
+        if @comment.save
+            redirect_to advert_path(@comment.advert)
+        else
+            render "comments/edit", status: :unprocessable_entity
+        end
     end
 
     def destroy
