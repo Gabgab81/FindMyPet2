@@ -45,11 +45,13 @@
     <% end %>
   </div>
   
+  <% if user_signed_in? %>
   <div class="comment-adv">
     <div class="simple-form">
       <%= render 'comments/form', advert: @advert, comment: @comment %>
     </div>
   </div>
+  <% end %>
   <div id="bottom"></div>
 
 </div>
