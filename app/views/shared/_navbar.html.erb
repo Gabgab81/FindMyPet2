@@ -1,10 +1,17 @@
-<div data-controller="navbar-homepage" data-action="scroll@window->navbar-homepage#scroll" class="fixed-top">
+<%# <div data-controller="navbar-homepage" data-action="scroll@window->navbar-homepage#scroll" class="fixed-top"> %>
+<div class="fixed-top">
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
     <%# logo %>
-
+  <%if false%>
+    <div class="div-nav-left <%= action_name == "home"? "logo-position-set home" : "logo-position-set" %>" data-navbar-homepage-target="logoposition">
+      <%= link_to root_path do %>
+        <%= render "shared/logo" %>
+      <% end %>
+    </div>
+  <%end%>
     <div class="div-nav-left <%= action_name == "home"? "logo-position-set home" : "logo-position-set" %>" data-navbar-homepage-target="logoposition">
       <%= link_to root_path do %>
         <%= render "shared/logo" %>
@@ -62,7 +69,7 @@
 </div>
 
 <%# background img %>
-
+<%if false%>
 <div class="img-home-page <%= action_name == "home"? "img-home-page" : "d-none" %>" data-navbar-homepage-target="img">
   <div class="logo-position"></div>
   <h2>Let's find your animal together</h2>
@@ -72,7 +79,7 @@
   <%= link_to "Nobody saw it? Let people knows.", new_advert_path %>
 
 </div>
-
+<%end%>
 <%# background img %>
 
 </div>
