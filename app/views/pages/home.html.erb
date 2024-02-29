@@ -1,34 +1,31 @@
 <div class="home">
-    <div class="space-between"></div>
-    <nav>
-        <ul>
-            <li class="btn-search">
-                <%= link_to 'Search', adverts_path %>
-            </li>
-            <li class="btn-post">
-                <%= link_to 'Post', new_advert_path %>
-            </li>
-        </ul>    
-    </nav>
-    <div class="title">
-        <hr class="hr">
-        <h1>Last Ads</h1>
-        <hr class="hr">
+  <%# <div class="space-between"></div> %>
+  <nav>
+      <ul>
+          <li class="btn-search">
+              <%= link_to 'Search', adverts_path %>
+          </li>
+          <li class="btn-post">
+              <%= link_to 'Post', new_advert_path %>
+          </li>
+      </ul>    
+  </nav>
+  <div class="title">
+    <hr class="hr">
+    <h1>Last Ads</h1>
+    <hr class="hr">
+  </div>
+  
+  <section class="list-adv-cards" >
+    <% @adverts.each do |advert| %>
+        <%= render 'shared/cards-advert', advert: advert %>
+    <% end %>
+    <div class="space-between">
     </div>
-    
-    <section class="list-adv-cards" >
-        <% @adverts.each do |advert| %>
-            <%= render 'shared/cards-advert', advert: advert %>
-        <% end %>
-        <div class="space-between">
-        </div>
-        <%= render 'shared/map', markers: @markers %>
-        <div class="space-between">
-        </div>
-        
-
-
-    </section>    
+    <%= render 'shared/map', markers: @markers %>
+    <div class="space-between">
+    </div>
+  </section>    
     
 </div>
 

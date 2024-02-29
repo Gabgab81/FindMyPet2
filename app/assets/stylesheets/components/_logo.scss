@@ -1,140 +1,140 @@
-.logo{
-    background-color: white;
-    border: 5px solid rgba(5, 47, 95, 1);
-    border-radius: 36px;
-    width: 150px;
-    height: 170px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    //Make the logo outside of the navbar
-    position: absolute;
-    top: -40px;
-    left: 10px;
-    .logo-inside{
-        // transition: all 0.5s;
-        // transition-timing-function: cubic-bezier(0,.71,.01,.98);
-        // transition-property: border-radius width height font-size;
-
-        width: 126px;
-        height: 150px;
-        border: 5px solid rgba(5, 47, 95, 1);
-        border-radius: 36px;
-        background-image: asset-url("logo.jpg");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        //Title
-        color: white;
-        font-size: 40px;
-        line-height: 95%;
-        font-weight: bold;
-        text-align: center;
-        text-shadow: 0px 0px 2px rgba(5, 47, 95, 1);
-    }
-}
-
-.logo.transition{
-    // vertical-align: top;
-    background-color: white;
+.logo {
+  background-color: white;
+  border: 5px solid rgba(5, 47, 95, 1);
+  border-radius: 36px;
+  width: 150px;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //Make the logo outside of the navbar
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  .logo-inside {
     // transition: all 0.5s;
     // transition-timing-function: cubic-bezier(0,.71,.01,.98);
-    // transition-property: border-radius, width, height, font-size;
+    // transition-property: border-radius width height font-size;
 
-    transition-property: border-radius, width, height, font-size;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
-    transform: scale(1, 1);
-
+    width: 126px;
+    height: 150px;
     border: 5px solid rgba(5, 47, 95, 1);
     border-radius: 36px;
-    width: 150px;
-    height: 170px;
+    background-image: asset-url("logo.jpg");
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    //Make the logo outside of the navbar
-    position: absolute;
-    top: -40px;
-    left: 10px;
-    .logo-inside{
-        // transition: all 0.5s ease-in-out;
-        // transition-property: border-radius, width, height, font-size;
-        transition-property: border-radius,transform;
-        transition-duration: 0.3s;
-        transition-timing-function: ease-in-out;
-        
-        transform: scale(1, 1);
-        width: 126px;
-        height: 150px;
-        border: 5px solid rgba(5, 47, 95, 1);
-        border-radius: 36px;
-        background-image: asset-url("logo.jpg");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        //Title
-        color: white;
-        font-size: 40px;
-        line-height: 95%;
-        font-weight: bold;
-        text-align: center;
-        text-shadow: 0px 0px 2px rgba(5, 47, 95, 1);
-    }
+    //Title
+    color: white;
+    font-size: 40px;
+    line-height: 95%;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0px 0px 2px rgba(5, 47, 95, 1);
+  }
 }
 
-.logo.home{
+.logo.transition {
+  // vertical-align: top;
+  background-color: white;
+  // transition: all 0.5s;
+  // transition-timing-function: cubic-bezier(0,.71,.01,.98);
+  // transition-property: border-radius, width, height, font-size;
+
+  transition-property: border-radius, width, height, font-size;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scale(1, 1);
+
+  border: 5px solid rgba(5, 47, 95, 1);
+  border-radius: 36px;
+  width: 150px;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //Make the logo outside of the navbar
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  .logo-inside {
     // transition: all 0.5s ease-in-out;
     // transition-property: border-radius, width, height, font-size;
     transition-property: border-radius, transform;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    // vertical-align: top;
-    transform: scale(1.2, 1.3);
 
-    background-color: white;
+    transform: scale(1, 1);
+    width: 126px;
+    height: 150px;
     border: 5px solid rgba(5, 47, 95, 1);
-    border-radius: 80px;
-    width: 500px;
-    height: 200px;
-    // width: 690px;
-    // height: 280px;
+    border-radius: 36px;
+    background-image: asset-url("logo.jpg");
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    //Make the logo outside of the navbar
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    
-    .logo-inside{
-        transition-property: border-radius, transform;
-        transition-duration: 0.3s;
-        transition-timing-function: ease-in-out;
+    //Title
+    color: white;
+    font-size: 40px;
+    line-height: 95%;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0px 0px 2px rgba(5, 47, 95, 1);
+  }
+}
 
-        // transform: scale(1.2, 1.3);
-        width: 450px;
-        height: 150px;
-        // width: 640px;
-        // height: 230px;
-        border: 5px solid rgba(5, 47, 95, 1);
-        border-radius: 60px;
-        background-image: asset-url("logo.jpg");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        //Title
-        color: white;
-        font-size: 40px;
-        line-height: 95%;
-        font-weight: bold;
-        text-align: center;
-        text-shadow: 0px 0px 2px rgba(5, 47, 95, 1);
-    }
+.logo.home {
+  // transition: all 0.5s ease-in-out;
+  // transition-property: border-radius, width, height, font-size;
+  transition-property: border-radius, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  // vertical-align: top;
+  transform: scale(1.2, 1.3);
+
+  background-color: white;
+  border: 5px solid rgba(5, 47, 95, 1);
+  border-radius: 80px;
+  width: 500px;
+  height: 200px;
+  // width: 690px;
+  // height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //Make the logo outside of the navbar
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  .logo-inside {
+    transition-property: border-radius, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+
+    // transform: scale(1.2, 1.3);
+    width: 450px;
+    height: 150px;
+    // width: 640px;
+    // height: 230px;
+    border: 5px solid rgba(5, 47, 95, 1);
+    border-radius: 60px;
+    background-image: asset-url("logo.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //Title
+    color: white;
+    font-size: 40px;
+    line-height: 95%;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0px 0px 2px rgba(5, 47, 95, 1);
+  }
 }
