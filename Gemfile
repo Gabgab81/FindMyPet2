@@ -52,6 +52,8 @@ gem "geocoder"
 gem "devise"
 gem "pundit"
 
+gem "faker"
+
 gem "cloudinary"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
