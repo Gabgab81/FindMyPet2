@@ -19,7 +19,7 @@ if(false)
 
 filepath = "app/assets/adresses.csv"
 
-# addressRandom = CSV.read(filepath).sample
+addressRandom = CSV.read(filepath).sample
 
 # puts "--------"
 # print addressRandom
@@ -92,6 +92,14 @@ my = User.new(
 
 my.save!
 
+filepath = "app/assets/adresses.csv"
+
+address = CSV.read(filepath).sample
+
+result = Geocoder.search([address[13], address[12]]).first.address
+
+puts result
+
 # animalType = ["dog", "cat"].sample
 
 # if animalType == "dog"
@@ -116,7 +124,7 @@ my.save!
 
   advert = Advert.new(
     name: name,
-    address: "Somewhere",
+    address: result,
     phone: "00000000000",
     type_ad: "Lost",
     content: "I lost my dog",
