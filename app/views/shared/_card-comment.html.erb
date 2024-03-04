@@ -3,10 +3,14 @@
     <div class="img-username">
 
         <div class="outside-user-img">
-            <div class="user-img" style="background-image: url('<%= image_path "logo.jpg" %>'); background-size: cover; background-position: center;">
+          <%if(comment.user.photo.key.nil?) %>
+            <div class="user-img" style="background-image: url('<%=  image_path "logo.jpg" %>'); background-size: cover; background-position: center;"></div>
+          <%else%>
+            <div class="user-img" style="background-image: url('<%= cl_image_path comment.user.photo.key %>'); background-size: cover; background-position: center;">
             </div>
+          <%end%>
         </div>
-        
+        <%# cl_image_tag current_user.photo.key %>
         <div class="info-user">
             <h3><%= comment.user.name %></h3>
         </div>
